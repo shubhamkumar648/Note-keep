@@ -1,9 +1,13 @@
 import "./App.css";
+import { Navbar } from './component';
+import {  RoutesPath } from './routes/RoutesPath';
+
 
 function App() {
   return (
     <div className="App">
-      <h1> Hello i am shubham</h1>
+       <Navbar/>
+     <RoutesPath/>
     </div>
   );
 }
