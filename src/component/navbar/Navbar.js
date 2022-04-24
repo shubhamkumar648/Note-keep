@@ -15,10 +15,10 @@ import { Link } from "react-router-dom";
 
         <div className="nav flex">
           <button className="btn btn__primary">
-            <a className="link__nostyle" to="/login">
+            <Link className="link__nostyle" to="/login">
               {" "}
               Login
-            </a>
+            </Link>
           </button>
         </div>
       </header>

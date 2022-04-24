@@ -1,0 +1,27 @@
+.main-noteCard-container {
+
+    border: 1px solid black;
+    width: 20rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 2rem;
+    
+}
+
+.pin_icon {
+
+  margin-left: auto;
+}
+
+.main-noteCard-container p{
+
+  margin-right:  auto;
+  padding-top: 0.5rem;
+}
+
+.cart-footer {
+
+  justify-content: end;
+  gap: 0.5rem;
+}

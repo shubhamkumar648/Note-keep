@@ -1,0 +1,39 @@
+.main-text-container {
+  border: 1px solid black;
+  width: 25rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 2rem;
+
+}
+
+.text-input {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+
+}
+
+.text-footer {
+  padding-top: 1rem;
+  justify-content: space-between;
+
+}
+
+
+.text-area {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: none;
+
+}
+
+.addButton {
+  justify-content: space-between;
+  border-radius:10px;
+  border: 1px solid black ;
+}
+
