@@ -1,0 +1,41 @@
+.authentic_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 80vh;
+}
+
+.login_container {
+    width: 25rem;
+    min-height: 25rem;
+    box-shadow: var(--auth-shadow);
+    border-radius: 1rem;
+}
+
+.inp_area {
+    padding: 0.7rem;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    border: 1px solid var(--dark-grey);
+}
+
+.login_color {
+    color: var(--primary-color);
+}
+
+.log_btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.create_acc {
+    color: var(--primary-color);
+    font-weight: 1000;
+    text-decoration: underline;
+}
+
+.forgot_pass {
+    gap: 0.4rem;
+}

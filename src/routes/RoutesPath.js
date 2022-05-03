@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes,Route } from 'react-router-dom'
-import { Archives, Note, Trash } from '../pages'
+import { Archives, Login, Note, Signup, Trash } from '../pages'
 
 
 const RoutesPath = () => {
@@ -12,7 +12,8 @@ const RoutesPath = () => {
 <Route path = "/notes" element={<Note/>}/>
 <Route path = "/archives" element = {<Archives/>}/>
 <Route path = "/trash"  element = {<Trash/>}/>
-
+<Route path = "/login"  element = {<Login/>} />
+<Route path ="/signup" element = {<Signup/>} />
 </Routes>
 </div>
     )
