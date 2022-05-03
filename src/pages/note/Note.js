@@ -1,8 +1,12 @@
 import React from "react";
-import { Notecard, Notes, Sidebar } from "../../component";
+import {  Notecard, Notes, Sidebar } from "../../component";
+import { useNotes } from "../../contexts/Notes-context";
 import "./note.css";
 
-const Note = () => {
+export const Note = () => {
+
+  const {stateNotes } = useNotes()
+  const {noteList} = stateNotes
   return (
     <div>
       <main className="NoteList_layout flex flex-col">
@@ -10,11 +14,18 @@ const Note = () => {
 
         <article>
           <Notes />
-          <Notecard/>
+
+          {noteList.map((item) => (
+
+            <div>
+           <Notecard noteContent={item}/>
+
+            </div>
+          ))}
+          
         </article>
       </main>
     </div>
   );
 };
 
-export { Note };
