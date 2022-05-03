@@ -19,7 +19,6 @@ export const Notes = () => {
         placeholder="Title"
         className="text-input"
         value={title}
-        // onChange={(e) => setNote({ ...note, title: e.target.value })}
         onChange = {(e) => dispatchNotes({type:"TITLE", payload:e.target.value})}
       />
              
