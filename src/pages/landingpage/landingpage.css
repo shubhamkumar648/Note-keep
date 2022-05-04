@@ -1,0 +1,13 @@
+.landingPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50rem;
+}
+
+.landing {
+
+    align-items: center;
+    border: 1px solid black;
+    padding: 1rem;
+}

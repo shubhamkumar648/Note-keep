@@ -1,9 +1,19 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { useAuth } from '../../contexts/Auth-context';
+
 
  const Navbar = () => {
+   const {setUser,user} = useAuth()
 
 
+const submitHandler = (e) => {
+         e.preventDefault() 
+         localStorage.removeItem("token")    
+          setUser(null)
+          
+}
   return(
     <div>
          <header className="ecom_header flex">
@@ -14,12 +24,12 @@ import { Link } from "react-router-dom";
         </div>
 
         <div className="nav flex">
-          <button className="btn btn__primary">
-            <Link className="link__nostyle" to="/login">
-              {" "}
-              Login
-            </Link>
+        <form onSubmit ={submitHandler}>
+          <button className="btn btn__primary" type="submit">
+           
+              {user ? "Logout" :"Login"}
           </button>
+          </form>
         </div>
       </header>
     </div>

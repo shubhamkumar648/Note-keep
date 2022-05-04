@@ -12,7 +12,7 @@ export const Signup = () => {
           <form action="#0">
             <div className=" flex flex-col">
               <label for="Email" className="font-xl fs-l">
-                Email
+                FIRSTNAME
               </label>
               <input
                 type="email"
@@ -23,7 +23,7 @@ export const Signup = () => {
             </div>
             <div className=" flex flex-col pt-3">
               <label for="password" className="font-xl fs-l">
-                Password
+                LASTNAME
               </label>
               <input
                 type="password"
@@ -34,7 +34,18 @@ export const Signup = () => {
             </div>
             <div className=" flex flex-col pt-3">
               <label for="password" className="font-xl fs-l">
-                FIRSTNAME
+                EMAIL
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your Password"
+                className="p-1 mb-1 inp_area"
+                required
+              />
+            </div>
+            <div className=" flex flex-col pt-3">
+              <label for="password" className="font-xl fs-l">
+                PASSWORD
               </label>
               <input
                 type="password"

@@ -5,10 +5,11 @@ const AuthCreate = createContext()
 
   export const AuthProvider = ({children}) => {
       
-    const [user, setUser ] = useState()
+    const [user, setUser] = useState(null)
+
     const encodedToken = localStorage.getItem("token");
 
-    return(
+    return (
 
       <AuthCreate.Provider value={{user,setUser,encodedToken}}>
              {children}
