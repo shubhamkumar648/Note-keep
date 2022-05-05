@@ -28,7 +28,6 @@ export const Login = () => {
         email,
         password,
       });
-          console.log(response);
       localStorage.setItem("token", response.data.encodedToken);
 
       setUser(response.data.foundUser);
