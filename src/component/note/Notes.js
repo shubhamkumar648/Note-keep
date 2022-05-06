@@ -1,15 +1,52 @@
+import axios from "axios";
 import React from "react";
 import { FaPalette, FaTag } from "react-icons/fa";
+import { useReducer } from "react";
+import { useAuth } from "../../contexts/Auth-context";
 import { useNotes } from "../../contexts/Notes-context";
+import { setNoteReducer } from "../../reducer/setNoteReducer";
 import "./notes.css";
 
 export const Notes = () => {
-  const {stateNotes ,dispatchNotes} = useNotes()
+  const {  notesDispatch } = useNotes();
 
-  const {title, textarea, noteList} = stateNotes
+  const { encodedToken } = useAuth();
 
-  const handleClick = () => {
-    dispatchNotes([...noteList, { title: title, textarea: textarea }]);
+  const [state, dispatch] = useReducer(setNoteReducer, {
+    title: "",
+    textarea: "",
+  });
+
+  const { title, textarea } = state;
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    let addNote = {
+      title,
+      textarea,
+    };
+
+    try {
+      const response = await axios.post(
+        "/api/notes",
+        { note: addNote },
+       
+        {
+          headers: {
+            authorization: encodedToken,
+          },
+        }
+      );
+      if (response.status === 201) {
+        notesDispatch({ type: "ADD_NOTE", payload: addNote });
+        dispatch({ type: "RESET" });
+      }
+    } 
+    
+    catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -19,16 +56,19 @@ export const Notes = () => {
         placeholder="Title"
         className="text-input"
         value={title}
-        onChange = {(e) => dispatchNotes({type:"TITLE", payload:e.target.value})}
+        onChange={(e) =>
+          dispatch({ type: "SET_TITLE", payload: e.target.value })
+        }
       />
-             
       <textarea
         placeholder="Take a note"
         className="text-area"
         row="4"
         column="50"
         value={textarea}
-        onChange={(e) => dispatchNotes({type:"TEXTAREA",payload:e.target.value})}
+        onChange={(e) =>
+          dispatch({ type: "SET_TEXTAREA", payload: e.target.value })
+        }
       ></textarea>
       <section className="text-footer flex">
         <div className="icons_container">
@@ -42,15 +82,6 @@ export const Notes = () => {
           </button>
         </div>
       </section>
-      {/* {noteList.map((item) => (  
-      <div>
-      <Notecard  noteContent={item}/>
-      </div>
-
-      ))} */}
-
-      {title-textarea}
     </div>
   );
 };
-

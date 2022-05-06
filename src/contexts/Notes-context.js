@@ -7,15 +7,13 @@ const NotesContext = createContext();
 
 const NotesProvider = ({ children }) => {
   const initialState = {
-    noteList: [],
-     title: "", 
-     textarea: "" 
+    notes: []
   };
 
-  const [stateNotes, dispatchNotes] = useReducer(NoteReducer, initialState);
+  const [notesState, notesDispatch] = useReducer(NoteReducer, initialState);
 
   return (
-    <NotesContext.Provider value={{ stateNotes, dispatchNotes }}>
+    <NotesContext.Provider value={{notesState, notesDispatch }}>
       {children}
     </NotesContext.Provider>
   );

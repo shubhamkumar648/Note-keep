@@ -34,7 +34,6 @@ export const Signup = () => {
 
     
       })
-        console.log(response);
       localStorage.setItem("token",response.data.encodedToken)
       setUser(response.data.createdUser)
       response.status === 201 && navigate("/notes");

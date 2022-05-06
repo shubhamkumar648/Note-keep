@@ -62,7 +62,7 @@ export const Login = () => {
                 className="p-1 mb-1 inp_area"
                 required
               />
-            </div>
+            </div> 
 
             <div className=" flex flex-col pt-3">
               <label for="password" className="font-xl fs-l">
@@ -89,7 +89,7 @@ export const Login = () => {
             >
               SUBMIT
             </button>
-            <button
+            <button     
               className="btn btn__primary m-auto pt-2 log_btn"
               type="submit"
               onClick={guestLoginHandler}
