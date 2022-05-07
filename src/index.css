@@ -1,15 +1,45 @@
 @import url("https://grow-n-know.netlify.app/styles/main.css");
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --hometext-color: hsl(340, 80%, 22%);
+  --textoverlaybg-color: hsla(0, 0%, 100%, 0.432);
+  --midgrey: hsl(220, 9%, 46%);
+  --discount: hsl(352, 66%, 43%);
+  --productcard-shadow: 13px 13px 21px -5px rgba(0, 0, 0, 0.3);
+  --auth-shadow: 0 3px 8px rgb(0 0 0 / 24%)
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.theme_color {
+  color: var(--primary-color);
 }
+
+.flex_center {
+  justify-content: center;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.linthrough {
+  text-decoration: line-through;
+}
+
+.light {
+  color: var(----midgrey);
+  font-weight: lighter;
+}
+
+.discount-color {
+  color: var(--discount);
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+
+
+
+

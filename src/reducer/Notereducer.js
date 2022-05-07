@@ -1,15 +1,14 @@
 
-export const NoteReducer = (state,action) => {
+
+
+export const NoteReducer =(state ,action) => {
+   
+
   switch(action.type) {
  
-    case  "TITLE":
+       case "ADD_NOTE":
 
-    return {...state, title: action.payload}
-        
-    case "TEXTAREA":
-         
-    return {...state, textarea: action.payload}
-
+       return {...state , notes:[...state.notes,{...action.payload}]}
 
     default:
         return state
