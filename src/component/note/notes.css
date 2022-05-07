@@ -37,3 +37,33 @@
   border: 1px solid black ;
 }
 
+
+.colorpallete_container{
+  border: 1px solid black;
+  display: flex;
+  border-radius: 10px;
+  background-color: antiquewhite;
+
+}
+.note-colorBox {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.note-color-teal {
+  background-color: teal;
+}
+.note-color-blue {
+  background-color: rgb(17, 65, 83);
+}
+.note-color-red{
+  background-color: rgb(167, 97, 97);
+}
+.note-color-brown {
+  background-color: burlywood;
+}
+.note-color-green {
+  background-color: rgb(84, 110, 44);
+}
