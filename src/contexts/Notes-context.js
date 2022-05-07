@@ -17,7 +17,7 @@ const NotesProvider = ({ children }) => {
       {children}
     </NotesContext.Provider>
   );
-};
+}; 
 
 const useNotes = () => useContext(NotesContext);
 

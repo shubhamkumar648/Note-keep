@@ -15,6 +15,7 @@
      case "RESET":
 
      return {title:"" , textarea:""}
+     
     default:
         
     return state

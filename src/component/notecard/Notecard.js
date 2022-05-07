@@ -8,7 +8,7 @@ const {title,textarea} = noteContent
 
   return (
     <div>
-    <div className="main-noteCard-container flex ">
+    <div className="main-noteCard-container flex flex-col ">
        
      <div className='NoteCard_Header flex'>
       <p>{title}</p>

@@ -8,7 +8,7 @@ export const Note = () => {
   const {notes} = notesState
   return (
     <div>
-      <main className="notes_layout flex flex-col">
+      <main className="NoteList_layout flex flex-col">
         <Sidebar />
 
         <article>
