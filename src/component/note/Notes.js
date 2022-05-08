@@ -6,40 +6,58 @@ import { useAuth } from "../../contexts/Auth-context";
 import { useNotes } from "../../contexts/Notes-context";
 import { setNoteReducer } from "../../reducer/setNoteReducer";
 import "./notes.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 
-const NoteColors = [
-  {id: uuidv4(), color: ""},
-  {id: uuidv4() , color: "teal"},
-  {id: uuidv4(), color: "blue"},
-  {id: uuidv4(), color: "red"},
-  {id: uuidv4(), color: "brown"},
-  {id: uuidv4(), color: "green"},
 
-]
+const TagCategories = [
+  { id: uuidv4(), tag: "" },
+  { id: uuidv4(), tag: "work" },
+  { id: uuidv4(), tag: "important" },
+  { id: uuidv4(), tag: "secondary" },
+  { id: uuidv4(), tag: "college" },
+  { id: uuidv4(), tag: "home" },
+];
 
 export const Notes = () => {
+
+  const NoteColors = [
+    { id: uuidv4(), color: "" },
+    { id: uuidv4(), color: "teal" },
+    { id: uuidv4(), color: "blue" },
+    { id: uuidv4(), color: "red" },
+    { id: uuidv4(), color: "brown" },
+    { id: uuidv4(), color: "green" },
+  ];
   const { notesDispatch } = useNotes();
   const { encodedToken } = useAuth();
-  
+
   const [state, dispatch] = useReducer(setNoteReducer, {
     title: "",
     textarea: "",
-    noteColor:"",
-    isColorpalletVisible: false
+    noteColor: "",
+    isColorpalletVisible: false,
+    tags: "",
+    isTagCategoreis: false,
   });
 
-const { title, textarea,noteColor,isColorpalletVisible } = state;
+  const {
+    title,
+    textarea,
+    noteColor,
+    isColorpalletVisible,
+    isTagCategoreis,
+    tags,
+  } = state;
 
-
-const saveNotesHandler = async (e) => {
+  const saveNotesHandler = async (e) => {
     e.preventDefault();
-   
+
     let addNote = {
       title,
       textarea,
-      noteColor
+      noteColor,
+      tags,
     };
 
     try {
@@ -51,8 +69,12 @@ const saveNotesHandler = async (e) => {
           headers: {
             authorization: encodedToken,
           },
+
         }
+
       );
+      console.log(response.data,"res");
+
       if (response.status === 201) {
         notesDispatch({ type: "ADD_NOTE", payload: addNote });
         dispatch({ type: "RESET" });
@@ -65,50 +87,73 @@ const saveNotesHandler = async (e) => {
 
   return (
     <div className="main-text-container  flex flex-col mt-3">
-    <form className={`note-color-${noteColor}`}onSubmit= {saveNotesHandler}>
-      <input
-        type="text"
-        placeholder="Title"
-        className="text-input"
-        value={title}
-        onChange={(e) =>
-          dispatch({ type: "SET_TITLE", payload: e.target.value })
-        }
-      />
-      <textarea
-        placeholder="Take a note"
-        className="text-area"
-        row="4"
-        column="50"
-        value={textarea}
-        onChange={(e) =>
-          dispatch({ type: "SET_TEXTAREA", payload: e.target.value })
-        }
-      ></textarea>
-      <section className="text-footer flex">
-        <div className="icons_container flex">
-         <span onClick={() => dispatch({type:"COLOR_PALLET"})}> <FaPalette /> </span>
-          <FaTag className="ml-1" />
-        </div>
-              {
-                isColorpalletVisible && <div className="colorpallete_container"> 
-                     {NoteColors.map(({id,color}) =>(
-                     
-                     <div key = {id} className={`note-colorBox note-color-${color}`}
-                       onClick={() => dispatch({action:"SET_COLOR",payload:color})}
-                     > 
-                      </div>
-                     )
-                     )}
-                </div>
-              }
+      <form className={`note-color-${noteColor}`} onSubmit={saveNotesHandler}>
+        <input
+          type="text"
+          placeholder="Title"
+          className="text-input"
+          value={title}
+          onChange={(e) =>
+            dispatch({ type: "SET_TITLE", payload: e.target.value })
+          }
+        />
+        <textarea
+          placeholder="Take a note"
+          className="text-area"
+          row="4"
+          column="50"
+          value={textarea}
+          onChange={(e) =>
+            dispatch({ type: "SET_TEXTAREA", payload: e.target.value })
+          }
+        ></textarea>
 
-        <div className="addButton flex">
-          <button type="submit" className="btn addButton">
-            Add
-          </button>
-        </div>
-      </section>
+        <section className="text-footer flex">
+          <div className="icons_container flex">
+            <span onClick={() => dispatch({ type: "COLOR_PALLET" })}>
+              {" "}
+              <FaPalette />{" "}
+            </span>
+            <span onClick={() => dispatch({ type: "TAG_CATEGORIES" })}>
+              <FaTag className="ml-1" />
+            </span>
+          </div>
+          {isColorpalletVisible && (
+            <div className="colorpallete_container">
+              {NoteColors.map(({id, color }) => (
+                
+                <div
+                  key={id}
+                  className={`note-color note-color-${color}`}
+                  onClick={() =>
+                    dispatch({type: "SET_COLOR", payload: color })
+                  }
+
+                ></div>
+              ))}
+            </div>
+          )}
+
+          {isTagCategoreis && (
+            <div className="tagCategories_container">
+              {TagCategories.map(({ tag, id }) => (
+                <div
+                  key={id}
+                  onClick={() => dispatch({type: "SET_TAG", payload: tag })}
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          )}
+          {tags !== "" && <div className="displayTags">{tags}ss</div>}
+
+          <div className="addButton flex">
+            <button type="submit" className="btn addButton">
+              Add
+            </button>
+          </div>
+        </section>
       </form>
     </div>
   );

@@ -45,7 +45,7 @@
   background-color: antiquewhite;
 
 }
-.note-colorBox {
+.note-color {
   width: 2rem;
   height: 2rem;
   border: 1px solid var(--secondary-color);
@@ -66,4 +66,25 @@
 }
 .note-color-green {
   background-color: rgb(84, 110, 44);
+}
+
+.tagCategories_container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px ;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 25%;
+  left: 46%;
+  gap: .6rem;
+  background-color: aliceblue;
+
+}
+
+.displayTags{
+
+  border: 1px solid black;
+  width: 3rem;
+  display: flex;
 }
