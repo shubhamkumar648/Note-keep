@@ -13,13 +13,14 @@ export const Note = () => {
         <article>
           <Notes />
 
+           <div className="Notecard">
           {notes.map((item) => {
             return (
-              <div>
                 <Notecard noteContent={item} />
-              </div>
             );
           })}
+          </div>
+
         </article>
       </main>
     </div>

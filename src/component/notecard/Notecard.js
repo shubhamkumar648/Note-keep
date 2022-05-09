@@ -16,7 +16,7 @@ export const Notecard = ({ noteContent }) => {
         <p>{textarea}</p>
         <div>{tags}</div>
 
-        <section className="cart-footer flex" >
+        <section className="cart-footer flex pt-3">
           <p>Create at</p>
           <FaEdit />
 

@@ -1,50 +1,58 @@
 .main-text-container {
-  border: 1px solid black;
-  width: 25rem;
+  width: 30rem;
   padding: 1rem;
   border-radius: 10px;
   margin: auto;
   margin-top: 2rem;
-
+  box-shadow: var(--inputbox-shadow);
 }
 
-.text-input {
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  border-radius: 10px;
-  font-size: 1rem;
-  border: none;
+.InputContainer {
+  align-items: flex-start;
+  gap: 1rem;
+}
 
+.input {
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  color: var(--text-color);
+}
+::placeholder { 
+  color: var(--black-color);
+  opacity: 1; 
+}
+
+.note_textarea {
+  resize: none;
 }
 
 .text-footer {
   padding-top: 1rem;
   justify-content: space-between;
-
-}
-
-
-.text-area {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  border: none;
-
 }
 
 .addButton {
   justify-content: space-between;
-  border-radius:10px;
-  border: 1px solid black ;
 }
 
+.icons_container {
+  position: relative;
+}
 
-.colorpallete_container{
-  border: 1px solid black;
+.colorpallete_container {
+  box-shadow: var(--inputbox-shadow);
   display: flex;
   border-radius: 10px;
   background-color: antiquewhite;
-
+  position: absolute;
+  left: 49%;
+  padding: 4px;
+  gap: 1rem;
 }
+
 .note-color {
   width: 2rem;
   height: 2rem;
@@ -52,39 +60,39 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
 .note-color-teal {
-  background-color: teal;
+  background-color: var(--teal-color)
 }
+
 .note-color-blue {
-  background-color: rgb(17, 65, 83);
+  background-color: var(--blue-color)
 }
-.note-color-red{
-  background-color: rgb(167, 97, 97);
+
+.note-color-red {
+  background-color: var(--redlight-color);
 }
+
 .note-color-brown {
-  background-color: burlywood;
+  background-color: var(--brown-color);
 }
+
 .note-color-green {
-  background-color: rgb(84, 110, 44);
+  background-color: var(--secondary-color);
 }
 
 .tagCategories_container {
   display: flex;
   flex-direction: column;
-  border-radius: 5px ;
+  box-shadow: var(--inputbox-shadow);
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 25%;
-  left: 46%;
-  gap: .6rem;
-  background-color: aliceblue;
 
-}
-
-.displayTags{
-
-  border: 1px solid black;
-  width: 3rem;
-  display: flex;
+  left: 50%;
+  gap: 1rem;
+  padding: 5px;
+  background-color: antiquewhite;
+  font-size: larger;
+  border-radius: 5px solid antiquewhite;
 }

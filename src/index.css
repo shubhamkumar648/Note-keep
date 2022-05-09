@@ -5,14 +5,20 @@
   --textoverlaybg-color: hsla(0, 0%, 100%, 0.432);
   --midgrey: hsl(220, 9%, 46%);
   --discount: hsl(352, 66%, 43%);
-  --productcard-shadow: 13px 13px 21px -5px rgba(0, 0, 0, 0.3);
-  --auth-shadow: 0 3px 8px rgb(0 0 0 / 24%)
-  --
+  --auth-shadow: 0 3px 8px rgb(0 0 0 / 24%);
+  --inputbox-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  --teal-color:  hsl(180, 100%, 25%);
+  --blue-color: hsl(196, 66%, 20%);
+  --redlight-color:rgb(167, 97, 97);
+  --brown-color:  rgb(94, 28, 28);
+  --black-color: #000000;
+
 }
 
 
 .theme_color {
   color: var(--primary-color);
+ 
 }
 
 .flex_center {

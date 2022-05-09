@@ -86,38 +86,43 @@ export const Notes = () => {
   };
 
   return (
-    <div className="main-text-container  flex flex-col mt-3">
-      <form className={`note-color-${noteColor}`} onSubmit={saveNotesHandler}>
+    <div className={`main-text-container  flex flex-col mt-3 note-color-${noteColor}`}>
+      <form onSubmit={saveNotesHandler}>
+
+      <div className="InputContainer flex flex-col">
+
         <input
           type="text"
+          className="input"
           placeholder="Title"
-          className="text-input"
           value={title}
           onChange={(e) =>
             dispatch({ type: "SET_TITLE", payload: e.target.value })
           }
         />
-        <textarea
+         <textarea
           placeholder="Take a note"
-          className="text-area"
-          row="4"
-          column="50"
+          className="input note_textarea"
+          rows="5"
+          cols="20"
           value={textarea}
           onChange={(e) =>
             dispatch({ type: "SET_TEXTAREA", payload: e.target.value })
           }
         ></textarea>
+           </div>
+          <section className="text-footer flex">
 
-        <section className="text-footer flex">
-          <div className="icons_container flex">
+           <div className="icons_container flex">
             <span onClick={() => dispatch({ type: "COLOR_PALLET" })}>
               {" "}
               <FaPalette />{" "}
             </span>
             <span onClick={() => dispatch({ type: "TAG_CATEGORIES" })}>
               <FaTag className="ml-1" />
-            </span>
+             </span>
           </div>
+       
           {isColorpalletVisible && (
             <div className="colorpallete_container">
               {NoteColors.map(({id, color }) => (
@@ -146,13 +151,15 @@ export const Notes = () => {
               ))}
             </div>
           )}
-          {tags !== "" && <div className="displayTags">{tags}ss</div>}
+
+          {tags !== "" && <div className="displayTags">{tags}</div>}
 
           <div className="addButton flex">
-            <button type="submit" className="btn addButton">
+            <button type="submit" className="btn btn__primary">
               Add
             </button>
           </div>
+
         </section>
       </form>
     </div>
