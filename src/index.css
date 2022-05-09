@@ -12,14 +12,12 @@
   --redlight-color:rgb(167, 97, 97);
   --brown-color:  rgb(94, 28, 28);
   --black-color: #000000;
-
 }
 
 
 .theme_color {
   color: var(--primary-color);
- 
-}
+ }
 
 .flex_center {
   justify-content: center;

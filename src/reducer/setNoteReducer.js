@@ -1,5 +1,5 @@
 export const setNoteReducer = (state, action) => {
-  console.log(action.payload,"action");
+  console.log(action.payload, "action");
 
   switch (action.type) {
     case "SET_TITLE":
@@ -12,7 +12,7 @@ export const setNoteReducer = (state, action) => {
       return { ...state, isColorpalletVisible: !state.isColorpalletVisible };
 
     case "SET_COLOR":
-      return {...state, noteColor: action.payload };
+      return { ...state, noteColor: action.payload };
 
     case "SET_TAG":
       return { ...state, tags: action.payload };
@@ -22,6 +22,18 @@ export const setNoteReducer = (state, action) => {
     }
     case "RESET":
       return { title: "", textarea: "", noteColor: "", tags: "" };
+
+    case "PRIORITY":
+      return { ...state, priority: action.payload };
+
+    case "TAG_HIGH":
+      return { ...state, priority: action.payload };
+
+    case "TAG_MEDIUM":
+      return { ...state, priority: action.payload };
+
+    case "TAG_LOW":
+      return { ...state, priority: action.payload };
 
     default:
       return state;

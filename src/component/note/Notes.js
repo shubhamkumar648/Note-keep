@@ -39,6 +39,7 @@ export const Notes = () => {
     isColorpalletVisible: false,
     tags: "",
     isTagCategoreis: false,
+    priority: ""
   });
 
   const {
@@ -48,6 +49,7 @@ export const Notes = () => {
     isColorpalletVisible,
     isTagCategoreis,
     tags,
+    priority,
   } = state;
 
   const saveNotesHandler = async (e) => {
@@ -58,6 +60,7 @@ export const Notes = () => {
       textarea,
       noteColor,
       tags,
+      priority
     };
 
     try {
@@ -121,6 +124,13 @@ export const Notes = () => {
             <span onClick={() => dispatch({ type: "TAG_CATEGORIES" })}>
               <FaTag className="ml-1" />
              </span>
+
+   <select  value={priority} onChange={(e) => dispatch({type:"PRIORITY",payload: e.target.value})}>
+          <option onClick={() =>dispatch({type:"TAG_HIGH"})}>High</option>
+          <option onClick={() =>dispatch({type:"TAG_MEDIUM"})} >Medium</option>
+          <option  onClick={() =>dispatch({type:"TAG_LOW"})}>Low</option>
+        </select>
+
           </div>
        
           {isColorpalletVisible && (

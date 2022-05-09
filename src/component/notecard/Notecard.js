@@ -3,7 +3,7 @@ import "./notecard.css";
 import { FaArchive, FaTrash, FaEdit, FaThumbtack } from "react-icons/fa";
 
 export const Notecard = ({ noteContent }) => {
-  const { title, textarea,noteColor,tags} = noteContent;
+  const { title, textarea,noteColor,tags,priority} = noteContent;
 
   return (
     <div>
@@ -15,7 +15,7 @@ export const Notecard = ({ noteContent }) => {
 
         <p>{textarea}</p>
         <div>{tags}</div>
-
+         <div>{priority}</div>
         <section className="cart-footer flex pt-3">
           <p>Create at</p>
           <FaEdit />
