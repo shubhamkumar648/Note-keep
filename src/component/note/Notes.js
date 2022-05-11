@@ -39,7 +39,7 @@ export const Notes = () => {
     isColorpalletVisible: false,
     tags: "",
     isTagCategoreis: false,
-    priority: ""
+    priority: "",
   });
 
   const {
@@ -60,7 +60,9 @@ export const Notes = () => {
       textarea,
       noteColor,
       tags,
-      priority
+      priority,
+      createdAt: new Date().toLocaleString()
+
     };
 
     try {
