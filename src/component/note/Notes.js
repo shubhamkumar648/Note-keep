@@ -13,10 +13,10 @@ import { v4 as uuidv4 } from "uuid";
 const TagCategories = [
   { id: uuidv4(), tag: "" },
   { id: uuidv4(), tag: "work" },
-  { id: uuidv4(), tag: "important" },
-  { id: uuidv4(), tag: "secondary" },
-  { id: uuidv4(), tag: "college" },
+  { id: uuidv4(), tag: "daily" },
+  { id: uuidv4(), tag: "weekly" },
   { id: uuidv4(), tag: "home" },
+  { id: uuidv4(), tag: "other" },
 ];
 
 export const Notes = () => {

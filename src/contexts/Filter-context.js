@@ -8,11 +8,15 @@ export const FilterProvider = ({children}) => {
 
     const initialState = {
           priority: "",
-          date:"",
-          tags:"",
+          sortBydate:"",
+          daily: false,
+          home: false,
+          work:false,
+          other: false,
+          weekly:false
     }
 
-    const [stateFilter, dispatchFilter] = useReducer(filterReducerFunction, initialState)
+const [stateFilter, dispatchFilter] = useReducer(filterReducerFunction, initialState)
 
     return (
 
