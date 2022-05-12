@@ -13,7 +13,8 @@ export const FilterProvider = ({children}) => {
           home: false,
           work:false,
           other: false,
-          weekly:false
+          weekly:false,
+          tags: []
     }
 
 const [stateFilter, dispatchFilter] = useReducer(filterReducerFunction, initialState)

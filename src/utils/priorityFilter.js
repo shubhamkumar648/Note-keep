@@ -1,9 +1,10 @@
 export const priorityFilter = (state,data) => {
-  
-    switch(state.priority) {
+     
+    switch(state) {
     
       case "high":
-    
+       console.log(data.filter(item => item.priority === "high")
+       ,"hello priority");
       return data.filter(item => item.priority === "high")
     
       case "medium":

@@ -1,11 +1,10 @@
 export const  filterReducerFunction = (state,action) => {
-  console.log(state.type);
-  console.log(action.payload);  
+  // console.log(state.type);
+  // console.log(action.payload);  
 
     switch(action.type) {
         
         case  "PRIORITY_ORDER":
-
           return {...state, priority: action.payload}
         
           case "SORT_BY_DATE":
