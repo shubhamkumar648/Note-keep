@@ -6,13 +6,14 @@ import { useFilter } from "../../contexts/Filter-context";
 export const Filter = () => {
   const { stateFilter, dispatchFilter } = useFilter();
   const [display, setDisplay] = useState(false);
-  const { priority, sortBydate, home,daily,weekly,work,other } = stateFilter;
+  const { priority, sortBydate, tags } = stateFilter;
+
   return (
     <>
       <div className="Filter_Main_Container">
         <span
           className="fs-xl Filter-icon-Container"
-          onClick={() => setDisplay(!display)}
+          onClick={() => setDisplay(prev => !prev)}
         >
           {" "}
           Sort By
@@ -29,10 +30,10 @@ export const Filter = () => {
               <ul>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     id="high"
                     name="sort-by-priority"
-                    checked={priority === "high"}
+                    checked={priority.includes("high")}
                     value="high"
                     onChange={(e) =>
                       dispatchFilter({
@@ -45,10 +46,10 @@ export const Filter = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     id="medium"
                     name="sort-by-priority"
-                    checked={priority === "medium"}
+                    checked={priority.includes("medium")}
                     value="medium"
                     onChange={(e) =>
                       dispatchFilter({
@@ -61,10 +62,10 @@ export const Filter = () => {
                 </li>
                 <li>
                   <input
-                    type="radio"
+                    type="checkbox"
                     id="low"
                     name="sort-by-priority"
-                    checked={priority === "low"}
+                    checked={priority.includes("low")}
                     value="low"
                     onChange={(e) =>
                       dispatchFilter({
@@ -125,36 +126,46 @@ export const Filter = () => {
                 <li>
                   <input 
                   type="checkbox"
-                  checked={work}
-                  onChange={() => dispatchFilter({type:"work"})}
+                  name = "filter_by_tags"
+                  value="work"
+                  checked={tags.includes("work")}
+                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
                    />
                   <label>Work</label>
                 </li>
                 <li>
                   <input type="checkbox"
-                  checked={daily}
-                  onChange={() => dispatchFilter({type:"daily"})}
+                   name = "filter_by_tags"
+                   value="daily"
+                  checked={tags.includes("daily")}
+                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
                    />
                   <label>Daily</label>
                 </li>
                 <li>
                   <input type="checkbox"
-                  checked={home}
-                  onChange={() => dispatchFilter({type:"home"})}
+                   name = "filter_by_tags"
+                   value="home"
+                  checked={tags.includes("home")}
+                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
                    />
                   <label>Home</label>
                 </li>
                 <li>
                   <input type="checkbox"
-                   checked={weekly}
-                   onChange={() => dispatchFilter({type:"weekly"})}
+                   name = "filter_by_tags"
+                   value="weekly"
+                   checked={tags.includes("weekly")}
+                   onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
                    />
                   <label>Weekly</label>
                 </li>
                 <li>
                   <input type="checkbox"
-                  checked={other}
-                  onChange={() => dispatchFilter({type:"other"})}
+                   name = "filter_by_tags"
+                   value="other"
+                  checked={tags.includes("other")}
+                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
                    />
                   <label>Other</label>
                 </li>
@@ -162,7 +173,7 @@ export const Filter = () => {
               </ul>
             </div>
 
-            <button className="btn btn__secondary">Clear all</button>
+            <button className="btn btn__secondary" onClick ={()=>dispatchFilter({type: "CLEAR_ALL"})}>Clear all</button>
           </div>
         </div>
       )}

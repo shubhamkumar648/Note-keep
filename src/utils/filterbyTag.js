@@ -1,45 +1,10 @@
-export const FilterbyTag = (state,data) => {
+export const FilterbyTag =(data,tags) => {
 
-   const {work,daily,other,home,weekly} = state
-    const TagFilter = []
-
-    if(work ===true) {
-
-       TagFilter = [
-           ...TagFilter,
-          data.filter(item => item.tags === "work")
-        ]
+    if(tags.length) {
+       return data.filter(item => tags.includes(item.tags))
     }
-    if(home ===true) {
+  else {
+    return data
 
-        TagFilter = [
-            ...TagFilter,
-           data.filter(item => item.tags === "home")
-         ]
-     }
- 
-     if(daily ===true) {
-
-        TagFilter = [
-            ...TagFilter,
-           data.filter(item => item.tags === "daily")
-         ]
-     }
- 
-     if(other ===true) {
-
-        TagFilter = [
-            ...TagFilter,
-           data.filter(item => item.tags === "other")
-         ]
-     }
-     if(weekly ===true) {
-
-        TagFilter = [
-            ...TagFilter,
-           data.filter(item => item.tags === "weekly")
-         ]
-     }
- 
-     return data
+  }
 }

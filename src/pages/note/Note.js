@@ -5,21 +5,23 @@ import { useFilter } from "../../contexts/Filter-context";
 import { useNotes } from "../../contexts/Notes-context";
 import { FilterbyTag } from "../../utils/filterbyTag";
 import { priorityFilter } from "../../utils/priorityFilter";
-import { sortByDateFun } from "../../utils/sortByDate";
+// import { sortByDateFun } from "../../utils/sortByDate";
 
 import "./note.css";
 
 export const Note = () => {
-  const { notesState } = useNotes();
-  const { notes } = notesState; 
- const {stateFilter} = useFilter()
-  const {priority,sortBydate,tags} = stateFilter
+
+const { notesState } = useNotes();
+const { notes } = notesState; 
+const {stateFilter} = useFilter()
+const {priority,sortBydate,tags} = stateFilter
 
 
+const NotePriorityFilter = priorityFilter(notes,priority)
+   const SortByTags = FilterbyTag(NotePriorityFilter,tags)
+  //  const SortByDateFilter = NotePriorityFilter(sortBydate,notes)
 
-const NotePriorityFilter = priorityFilter(priority,notes)
-// const SortByDateFilter = sortByDateFun(sortBydate,notes)
-// const SortByTags = FilterbyTag( tags,notes)
+    
   return (
     <div>
       <main className="NoteList_layout flex flex-col">
@@ -30,12 +32,13 @@ const NotePriorityFilter = priorityFilter(priority,notes)
 
           <Notes />
            <div className="Notecard">
-           {/* {console.log(SortByDateFilter,"sortByDte")} */}
-          {NotePriorityFilter.map((item) => {
+
+          {SortByTags.map((item) => {
             return (
-                <Notecard noteContent={item} />
+                <Notecard noteContent={item} key={item._id}/>
             );
           })}
+
           </div>
 
         </article>

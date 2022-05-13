@@ -7,13 +7,8 @@ const CreateFilter = createContext()
 export const FilterProvider = ({children}) => {
 
     const initialState = {
-          priority: "",
+          priority: [],
           sortBydate:"",
-          daily: false,
-          home: false,
-          work:false,
-          other: false,
-          weekly:false,
           tags: []
     }
 

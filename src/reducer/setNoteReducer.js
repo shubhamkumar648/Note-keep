@@ -1,5 +1,4 @@
 export const setNoteReducer = (state, action) => {
-  console.log(action.payload, "action");
 
   switch (action.type) {
     case "SET_TITLE":

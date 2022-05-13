@@ -1,34 +1,27 @@
-export const  filterReducerFunction = (state,action) => {
-  // console.log(state.type);
-  // console.log(action.payload);  
-
-    switch(action.type) {
-        
+export const  filterReducerFunction = (state,{type,payload}) => {
+  
+  console.log(payload);
+    switch(type) {
         case  "PRIORITY_ORDER":
-          return {...state, priority: action.payload}
-        
+          const updatePriorties = state.priority.includes(payload) ? state.priority.filter(item => item !==payload) :[...state.priority,payload]
+          return {...state, priority:updatePriorties}
+
+      case "SORT_BY_TAGS":
+    const updateTags = state.tags.includes(payload)? state.tags.filter(item => item !==payload) : [...state.tags,payload]
+     return{...state, tags:updateTags}
+
           case "SORT_BY_DATE":
-            return {...state, sortBydate: action.payload}
+            return {...state, sortBydate: payload}
              
-            case "work":
+             case "CLEAR_ALL":
 
-            return {...state, work: !state.work}
+             return {
 
-            case "weekly": 
-
-            return {...state, weekly: !state.weekly}
-
-            case "home":
-
-            return {...state, home: !state.home}
-
-            case "other":
-
-            return {...state, other: !state.other}
-
-            case "daily":
-
-            return {...state, daily: !state.daily}
+              priority:[],
+              tags:[],
+              sortBydate:""
+             }
+             
         default: 
          return state;
     }
