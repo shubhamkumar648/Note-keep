@@ -13,7 +13,7 @@ export const Filter = () => {
       <div className="Filter_Main_Container">
         <span
           className="fs-xl Filter-icon-Container"
-          onClick={() => setDisplay(prev => !prev)}
+          onClick={() => setDisplay((prev) => !prev)}
         >
           {" "}
           Sort By
@@ -124,56 +124,89 @@ export const Filter = () => {
               <h5>Sort by Tags</h5>
               <ul>
                 <li>
-                  <input 
-                  type="checkbox"
-                  name = "filter_by_tags"
-                  value="work"
-                  checked={tags.includes("work")}
-                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
-                   />
+                  <input
+                    type="checkbox"
+                    name="filter_by_tags"
+                    value="work"
+                    checked={tags.includes("work")}
+                    onChange={(e) =>
+                      dispatchFilter({
+                        type: "SORT_BY_TAGS",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
                   <label>Work</label>
                 </li>
                 <li>
-                  <input type="checkbox"
-                   name = "filter_by_tags"
-                   value="daily"
-                  checked={tags.includes("daily")}
-                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
-                   />
+                  <input
+                    type="checkbox"
+                    name="filter_by_tags"
+                    value="daily"
+                    checked={tags.includes("daily")}
+                    onChange={(e) =>
+                      dispatchFilter({
+                        type: "SORT_BY_TAGS",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
                   <label>Daily</label>
                 </li>
                 <li>
-                  <input type="checkbox"
-                   name = "filter_by_tags"
-                   value="home"
-                  checked={tags.includes("home")}
-                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
-                   />
+                  <input
+                    type="checkbox"
+                    name="filter_by_tags"
+                    value="home"
+                    checked={tags.includes("home")}
+                    onChange={(e) =>
+                      dispatchFilter({
+                        type: "SORT_BY_TAGS",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
                   <label>Home</label>
                 </li>
                 <li>
-                  <input type="checkbox"
-                   name = "filter_by_tags"
-                   value="weekly"
-                   checked={tags.includes("weekly")}
-                   onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
-                   />
+                  <input
+                    type="checkbox"
+                    name="filter_by_tags"
+                    value="weekly"
+                    checked={tags.includes("weekly")}
+                    onChange={(e) =>
+                      dispatchFilter({
+                        type: "SORT_BY_TAGS",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
                   <label>Weekly</label>
                 </li>
                 <li>
-                  <input type="checkbox"
-                   name = "filter_by_tags"
-                   value="other"
-                  checked={tags.includes("other")}
-                  onChange={(e) => dispatchFilter({type:"SORT_BY_TAGS" ,payload: e.target.value})}
-                   />
+                  <input
+                    type="checkbox"
+                    name="filter_by_tags"
+                    value="other"
+                    checked={tags.includes("other")}
+                    onChange={(e) =>
+                      dispatchFilter({
+                        type: "SORT_BY_TAGS",
+                        payload: e.target.value,
+                      })
+                    }
+                  />
                   <label>Other</label>
                 </li>
-             
               </ul>
             </div>
 
-            <button className="btn btn__secondary" onClick ={()=>dispatchFilter({type: "CLEAR_ALL"})}>Clear all</button>
+            <button
+              className="btn btn__secondary"
+              onClick={() => dispatchFilter({ type: "CLEAR_ALL" })}
+            >
+              Clear all
+            </button>
           </div>
         </div>
       )}

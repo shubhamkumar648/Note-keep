@@ -58,7 +58,7 @@ export const Notes = () => {
       noteColor,
       tags,
       priority,
-      CreatedAt: new Date().toLocaleString()
+      CreatedAt: new Date().toLocaleString(),
     };
 
     try {
@@ -110,7 +110,6 @@ export const Notes = () => {
           ></textarea>
         </div>
         <section className="text-footer flex">
-        
           <div className="icons_container flex">
             <span onClick={() => dispatch({ type: "COLOR_PALLET" })}>
               {" "}
