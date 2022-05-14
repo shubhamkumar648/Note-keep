@@ -1,10 +1,13 @@
 import React from "react";
 import "./notecard.css";
 import { FaArchive, FaTrash, FaEdit, FaThumbtack } from "react-icons/fa";
+import { useState } from "react";
+import { Edit} from  "../edit/Edit"
 
 export const Notecard = ({ noteContent }) => {
   const { title, textarea,noteColor,tags,priority,CreatedAt} = noteContent;
-  
+  const [isEdit, setisEdit] = useState(false)
+
   return (
     <div>
       <div className="main-noteCard-container flex flex-col" style={{backgroundColor: noteColor}}>
@@ -24,11 +27,18 @@ export const Notecard = ({ noteContent }) => {
           minute: "numeric",
           hour12: true
         })}`}</span>
-          <FaEdit />
+          <FaEdit  onClick={() => setisEdit(prev => !prev)}/>
 
-          <FaArchive />
+          <FaArchive  />
           <FaTrash />
+
+          
         </section>
+
+        {isEdit && 
+              <Edit noteContent = {noteContent} setisEdit={setisEdit}/>
+            
+          }
       </div>
     </div> 
   );

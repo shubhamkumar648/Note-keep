@@ -7,6 +7,7 @@ import { setNoteReducer } from "../../reducer/setNoteReducer";
 import "./notes.css";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { useState } from "react";
 
 const TagCategories = [
   { id: uuidv4(), tag: "" },
@@ -28,6 +29,7 @@ export const Notes = () => {
   ];
   const { notesDispatch } = useNotes();
   const { encodedToken } = useAuth();
+  const [edit,setEdit] = useState(false)
 
   const [state, dispatch] = useReducer(setNoteReducer, {
     title: "",
@@ -166,10 +168,10 @@ export const Notes = () => {
 
           <div className="addButton flex">
             <button type="submit" className="btn btn__primary">
-              Add
+              {edit?"Edit":"Add"}
             </button>
           </div>
-        </section>
+        </section> 
       </form>
     </div>
   );
