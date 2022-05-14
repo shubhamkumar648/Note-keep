@@ -6,20 +6,22 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { NotesProvider } from "./contexts/Notes-context";
-import {AuthProvider} from "./contexts/Auth-context"
+import { AuthProvider } from "./contexts/Auth-context";
+import { FilterProvider } from "./contexts/Filter-context";
 
 // Call make Server
 makeServer();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-  <AuthProvider>
-  <NotesProvider>
-  <App />
-</NotesProvider>
-  </AuthProvider>
-
-</BrowserRouter>
-  </React.StrictMode>,
+    <BrowserRouter>
+      <AuthProvider>
+        <NotesProvider>
+          <FilterProvider>
+            <App />
+          </FilterProvider>
+        </NotesProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
