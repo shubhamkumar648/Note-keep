@@ -95,7 +95,7 @@ export const Notes = ({ editNotes, setisEdit }) => {
           headers: { authorization: encodedToken },
         }
       );
-   console.log(response.status);
+      console.log(response.status);
       if (response.status === 201) {
         notesDispatch({ type: "EDIT_NOTES", payload: updateNotes });
       }
@@ -105,7 +105,7 @@ export const Notes = ({ editNotes, setisEdit }) => {
   };
 
   const editHandler = async (e) => {
-        e.preventDefault()
+    e.preventDefault();
 
     const updateNotes = {
       _id: editNotes._id,
