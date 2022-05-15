@@ -17,26 +17,27 @@ const TagCategories = [
   { id: uuidv4(), tag: "other" },
 ];
 
-export const Notes = () => {
-  const NoteColors = [
-    { id: uuidv4(), color: "" },
-    { id: uuidv4(), color: "teal" },
-    { id: uuidv4(), color: "blue" },
-    { id: uuidv4(), color: "red" },
-    { id: uuidv4(), color: "brown" },
-    { id: uuidv4(), color: "green" },
-  ];
+const NoteColors = [
+  { id: uuidv4(), color: "" },
+  { id: uuidv4(), color: "teal" },
+  { id: uuidv4(), color: "blue" },
+  { id: uuidv4(), color: "red" },
+  { id: uuidv4(), color: "brown" },
+  { id: uuidv4(), color: "green" },
+];
+
+export const Notes = ({ editNotes, setisEdit }) => {
   const { notesDispatch } = useNotes();
   const { encodedToken } = useAuth();
 
   const [state, dispatch] = useReducer(setNoteReducer, {
-    title: "",
-    textarea: "",
-    noteColor: "",
+    title: editNotes?.title || "",
+    textarea: editNotes?.textarea || "",
+    noteColor: editNotes?.noteColor || "",
     isColorpalletVisible: false,
-    tags: "",
+    tags: editNotes?.tags || "",
     isTagCategoreis: false,
-    priority: "",
+    priority: editNotes?.priority || "",
   });
 
   const {
@@ -72,7 +73,6 @@ export const Notes = () => {
           },
         }
       );
-      console.log(response.data, "res");
 
       if (response.status === 201) {
         notesDispatch({ type: "ADD_NOTE", payload: addNote });
@@ -83,11 +83,48 @@ export const Notes = () => {
     }
   };
 
+  // update notes
+
+  const updateNotesHandler = async (updateNotes) => {
+    try {
+      const response = await axios.post(
+        `/api/notes/${updateNotes._id}`,
+
+        { note: updateNotes },
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+      console.log(response.status);
+      if (response.status === 201) {
+        notesDispatch({ type: "EDIT_NOTES", payload: updateNotes });
+      }
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  const editHandler = async (e) => {
+    e.preventDefault();
+
+    const updateNotes = {
+      _id: editNotes._id,
+      title,
+      textarea,
+      noteColor,
+      tags,
+      priority,
+      CreatedAt: new Date().toLocaleString(),
+    };
+    updateNotesHandler(updateNotes);
+    setisEdit(false);
+  };
+
   return (
     <div
       className={`main-text-container  flex flex-col mt-3 note-color-${noteColor}`}
     >
-      <form onSubmit={saveNotesHandler}>
+      <form onSubmit={editNotes ? editHandler : saveNotesHandler}>
         <div className="InputContainer flex flex-col">
           <input
             type="text"
@@ -166,7 +203,7 @@ export const Notes = () => {
 
           <div className="addButton flex">
             <button type="submit" className="btn btn__primary">
-              Add
+              {editNotes ? "Edit" : "Add"}
             </button>
           </div>
         </section>
