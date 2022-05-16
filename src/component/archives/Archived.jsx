@@ -1,43 +1,33 @@
-import React from "react";
-import "./notecard.css";
-import { FaArchive, FaTrash, FaEdit, FaThumbtack } from "react-icons/fa";
-import { useState } from "react";
-import { Edit } from "../edit/Edit";
 import axios from "axios";
+import React from "react";
+import { FaArchive, FaTrash, FaThumbtack } from "react-icons/fa";
 import { useAuth } from "../../contexts/Auth-context";
 import { useNotes } from "../../contexts/Notes-context";
+import "./archived.css";
 
-export const Notecard = ({ noteContent }) => {
-
-  const { _id, title, textarea, noteColor, tags, priority, CreatedAt } = noteContent;
-
-  const [isEdit, setisEdit] = useState(false);
-
+export const Archieved = ({ archives }) => {
+  const { _id, title, textarea, noteColor, tags, priority, CreatedAt } =
+    archives;
   const { encodedToken } = useAuth();
   const { notesDispatch } = useNotes();
 
-  const archivedHandler = async () => {
-
-     try 
-    {
+  const unArchiveHandler = async() => {
+    try {
       const response = await axios.post(
-        `/api/notes/archives/${_id}`,
-        { note: noteContent },
+        `/api/archives/restore/${_id}`,
 
-        {
-          headers: { authorization: encodedToken },
-        }
+        { note: archives },
+
+        { headers: { authorization: encodedToken } }
       );
-      console.log(response.status);
 
-      if (response.status === 201) {
-        notesDispatch({ type: "ARCHIVE_NOTE", payload: noteContent });
+      console.log(response.status);
+      if (response.status === 200) {
+        notesDispatch({ type: "UNARCHIVED_NOTES", payload: archives });
       }
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error.response);
     }
-   
   };
 
   return (
@@ -65,13 +55,10 @@ export const Notecard = ({ noteContent }) => {
               hour12: true,
             })}`}
           </span>
-          <FaEdit onClick={() => setisEdit((prev) => !prev)} />
 
-          <FaArchive onClick={archivedHandler} />
-          <FaTrash/>
+          <FaArchive onClick={unArchiveHandler} />
+          <FaTrash />
         </section>
-
-        {isEdit && <Edit noteContent={noteContent} setisEdit={setisEdit} />}
       </div>
     </div>
   );

@@ -13,6 +13,22 @@ export const NoteReducer = (state, action) => {
         ),
       };
 
+      case "ARCHIVE_NOTE":
+
+      return {
+        ...state,
+        archives:[...state.archives, {...action.payload}],
+        notes: state.notes.filter(item => item._id !==action.payload._id)
+      }
+
+      case "UNARCHIVED_NOTES": 
+
+      return {
+        ...state,
+        archives: state.archives.filter(item => item._id !== action.payload._id),
+        notes:[...state.notes,{...action.payload}]
+      }
+
     default:
       return state;
   }

@@ -7,7 +7,8 @@ const NotesContext = createContext();
 
 const NotesProvider = ({ children }) => {
   const initialState = {
-    notes: []
+    notes: [],
+    archives: []
   };
 
   const [notesState, notesDispatch] = useReducer(NoteReducer, initialState);
