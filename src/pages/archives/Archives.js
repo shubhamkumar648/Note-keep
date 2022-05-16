@@ -22,6 +22,10 @@ const{notesState} = useNotes()
              )
         })}
         </article>
+
+        {!archives.length && (
+          <div className='flex '>Your Archieve card show here 😀</div>
+        )}
       </main>
       </div>
   )

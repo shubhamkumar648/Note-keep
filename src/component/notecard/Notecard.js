@@ -40,6 +40,30 @@ export const Notecard = ({ noteContent }) => {
    
   };
 
+  const deleteHandler = async() => {
+
+     try 
+    {
+      const response = await axios.delete(
+        `/api/notes/${_id}`,
+
+        {
+          headers: { authorization: encodedToken },
+        }
+      );
+      console.log(response.status);
+
+      if (response.status === 200) {
+        notesDispatch({ type: "DELETE_NOTE", payload: noteContent });
+      }
+    } 
+    catch (error) {
+      console.log(error.response);
+    }
+   
+  };
+
+
   return (
     <div>
       <div
@@ -68,10 +92,10 @@ export const Notecard = ({ noteContent }) => {
           <FaEdit onClick={() => setisEdit((prev) => !prev)} />
 
           <FaArchive onClick={archivedHandler} />
-          <FaTrash/>
+          <FaTrash  onClick={deleteHandler}/>
         </section>
 
-        {isEdit && <Edit noteContent={noteContent} setisEdit={setisEdit} />}
+        {isEdit && <Edit noteContent={noteContent} setisEdit= {setisEdit} />}
       </div>
     </div>
   );

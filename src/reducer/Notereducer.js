@@ -1,5 +1,8 @@
 export const NoteReducer = (state, action) => {
+
+  console.log(action.type);
   switch (action.type) {
+
     case "ADD_NOTE":
       return { ...state, notes: [...state.notes, { ...action.payload }] };
 
@@ -13,22 +16,43 @@ export const NoteReducer = (state, action) => {
         ),
       };
 
-      case "ARCHIVE_NOTE":
-
+    case "ARCHIVE_NOTE":
       return {
         ...state,
-        archives:[...state.archives, {...action.payload}],
-        notes: state.notes.filter(item => item._id !==action.payload._id)
-      }
+        archives: [...state.archives, { ...action.payload }],
+        notes: state.notes.filter((item) => item._id !== action.payload._id),
+      };
 
-      case "UNARCHIVED_NOTES": 
-
+    case "UNARCHIVED_NOTES":
       return {
         ...state,
-        archives: state.archives.filter(item => item._id !== action.payload._id),
-        notes:[...state.notes,{...action.payload}]
+        archives: state.archives.filter(
+          (item) => item._id !== action.payload._id
+        ),
+        notes: [...state.notes, { ...action.payload }],
+      };
+
+      case "DELETE_NOTE":
+       return {
+       ...state,
+       trash:[...state.trash, {...action.payload}],
+       notes: state.notes.filter((item) => item._id !== action.payload._id),
+
       }
 
+      case "RESTORE_TRASH":
+        return {
+        ...state,
+        trash: state.trash.filter((item) => item._id !== action.payload._id),
+        notes:[...state.notes, {...action.payload}],
+      }
+
+       case "DELETE_FOREVER":
+        return {
+        ...state,
+        trash: state.trash.filter((item) => item._id !== action.payload._id),
+          }
+ 
     default:
       return state;
   }
