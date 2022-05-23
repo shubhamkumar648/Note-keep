@@ -10,7 +10,7 @@ export const Login = () => {
 
   const [email, setEamil] = useState();
   const [password, setPassword] = useState();
-  const [showPassword , setShowpassword] = useState(false)
+  const [showPassword, setShowpassword] = useState(false);
 
   const { setUser, encodedToken } = useAuth();
 
@@ -32,7 +32,6 @@ export const Login = () => {
 
       setUser(response.data.foundUser);
       response.status === 200 && navigate("/notes");
-      
     } catch (error) {
       console.log(error.response);
     }
@@ -62,14 +61,14 @@ export const Login = () => {
                 className="p-1 mb-1 inp_area"
                 required
               />
-            </div> 
+            </div>
 
             <div className=" flex flex-col pt-3">
               <label for="password" className="font-xl fs-l">
                 Password
               </label>
               <input
-                type= {showPassword ? "Text" : "password"}
+                type={showPassword ? "Text" : "password"}
                 placeholder="Enter your Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -79,9 +78,13 @@ export const Login = () => {
             </div>
 
             <div className="forgot_pass flex">
-              <input type="checkbox" id="Pass" checked={showPassword} onChange={() => setShowpassword(!showPassword)}/>
+              <input
+                type="checkbox"
+                id="Pass"
+                checked={showPassword}
+                onChange={() => setShowpassword(!showPassword)}
+              />
               <label for="Pass">Show Password</label>
-           
             </div>
             <button
               className="btn btn__primary m-auto pt-2 log_btn"
@@ -89,13 +92,15 @@ export const Login = () => {
             >
               SUBMIT
             </button>
-            <button     
-              className="btn btn__primary m-auto pt-2 log_btn"
-              type="submit"
-              onClick={guestLoginHandler}
-            >
-              LOGIN AS A GUEST
-            </button>
+            <div>
+              <button
+                className="btn btn__primary m-auto pt-2 log_btn"
+                type="submit"
+                onClick={guestLoginHandler}
+              >
+                LOGIN AS A GUEST
+              </button>
+            </div>
           </form>
           <span className="mt-1">
             Don't have an account?

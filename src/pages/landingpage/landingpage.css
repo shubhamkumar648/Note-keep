@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50rem;
+    height: 53rem;
+    background-image: url("https://res.cloudinary.com/e-comerce/image/upload/v1653324717/samples/1489353_ipapo0.jpg");
 }
 
 .landing {
 
     align-items: center;
-    border: 1px solid black;
-    padding: 1rem;
+    padding-top: 1rem;
 }

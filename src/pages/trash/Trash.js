@@ -12,7 +12,7 @@ export const Trash = () => {
         <Sidebar />
 
         <article className='archive flex'>
-
+          
         {trash.map(item => {
              return(
           <div>
@@ -20,6 +20,12 @@ export const Trash = () => {
           </div>
              )
         })}
+
+        <div className='displaytext'>
+        {!trash.length && (
+          <div className='flex '>Your trash card show here 😀</div>
+        )}
+        </div>
         </article>
       </main>
     </div>

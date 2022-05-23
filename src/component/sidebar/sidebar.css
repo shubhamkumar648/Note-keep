@@ -1,0 +1,21 @@
+.sidebar_item_link {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 1rem;
+    border-radius: 5px;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.active_state:hover {
+    color: var(--secondary-color);
+    background-color: grey;
+}
+
+
+
+.active_state:focus {
+    color: greenyellow;
+    background-color: grey;
+}

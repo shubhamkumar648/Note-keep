@@ -5,10 +5,10 @@ import "./landingpage.css"
 export const Landingpage = () => {
   return (
     <div className='landingPage'>
-
+ 
    <div className='landing'>
 
-     <Link to="/login"><button className='btn btn__primary'>Join Now</button></Link>
+     <Link to="Login"><button className='btn btn__primary'>Join Now</button></Link>
 
    </div>
 

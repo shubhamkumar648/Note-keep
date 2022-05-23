@@ -24,3 +24,21 @@
 .fs-xs {
   font-size: 0.8rem;
 }
+
+.note-Function {
+
+  width: 7rem;
+  height: 2rem;
+  background-color: #ff9d00;
+}
+
+.tag-container {
+
+  gap: 5px;
+  padding-top: 1rem;
+}
+
+.NoteCard_Header{
+
+  align-items: flex-start;
+}

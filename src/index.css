@@ -60,5 +60,13 @@
   gap: 5px;
 }
 
+.displaytext {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  padding-top: 1rem;
+}
 
 

@@ -202,7 +202,7 @@ export const Filter = () => {
             </div>
 
             <button
-              className="btn btn__secondary"
+              className="btn btn__primary"
               onClick={() => dispatchFilter({ type: "CLEAR_ALL" })}
             >
               Clear all
