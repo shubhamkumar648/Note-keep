@@ -9,7 +9,6 @@ React Router
 css
 
 Live-Link
-click on this link - PlayX-Note
 
 ## Features
 Home Page
@@ -30,7 +29,6 @@ Authentication
 ### Installation Steps
 
 1. Clone the app
-git clone https://github.com/aniketsingh13/PlayX-notes
 
 2. Install the dependencies in your root folder where you cloned the app
 npm install
