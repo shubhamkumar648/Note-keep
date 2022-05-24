@@ -1,30 +1,33 @@
 ## simple Note
 A note taking app
 
-Technology-used
-ReactJs
-Grow and Know component library
-Mockbee for backend
-React Router
-css
+- Technology-used
+- ReactJs
+- Grow and Know component library
+- Mockbee for backend
+- React Router
+- css
 
-Live-Link
+### Live-Link
+- click this link - [Note App ](https://note-keep.vercel.app/)
 
-## Features
-Home Page
-Create new note
-Add color to note
-Add label to note
-Add priority to note
-Edit note
-Archive/Unarchive note
-Delete the note
-Restore note from trash
-Permenantly delete from trash
-Sort with date
-filter with labels
-filter with priority
-Authentication
+## Features Present
+<ul>
+<li>Home Page</li>
+ <li>Create new note</li>
+  <li>Add color to note</li>
+  <li>Add label to note</li>
+  <li> Add priority to note</li>
+  <li>Edit note</li>
+<li>Archive/Unarchive note</li>
+<li>Delete the note</li>
+  <li> Restore note from trash</li>
+   <li> Permenantly delete from trash</li>
+   <li> Sort with date</li>
+   <li> filter with labels </li>
+   <li> filter with priority </li>
+  <li> Authentication </li>
+  </ul>
 
 ### Installation Steps
 
