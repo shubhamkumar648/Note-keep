@@ -10,8 +10,6 @@ export const Trashcard = ({ trash }) => {
 
   const { notesDispatch } = useNotes();
 
-  
-
   return (
     <div>
       <div
