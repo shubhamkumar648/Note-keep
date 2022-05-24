@@ -33,6 +33,11 @@ export const Note = () => {
               return <Notecard noteContent={item} key={item._id} />;
             })}
           </div>
+          <div className="displaytext">
+          {!SortByDateFilter.length && (
+          <div className='flex  '>Your note card appear here 😀</div>
+        )}
+        </div>
         </article>
       </main>
     </div>

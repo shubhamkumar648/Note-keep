@@ -54,6 +54,7 @@ export const Notes = ({ editNotes, setisEdit }) => {
     e.preventDefault();
 
     let addNote = {
+      _id: uuidv4(),
       title,
       textarea,
       noteColor,
@@ -95,7 +96,6 @@ export const Notes = ({ editNotes, setisEdit }) => {
           headers: { authorization: encodedToken },
         }
       );
-      console.log(response.status);
       if (response.status === 201) {
         notesDispatch({ type: "EDIT_NOTES", payload: updateNotes });
       }

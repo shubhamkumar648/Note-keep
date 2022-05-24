@@ -14,7 +14,6 @@
   --black-color: #000000;
 }
 
-
 .theme_color {
   color: var(--primary-color);
  }
@@ -44,7 +43,30 @@
   flex-wrap: wrap;
 }
 
+.NoteList_layout {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
 
+.NoteList_layout li {
+  padding: 1rem;
+  text-align: start;
+}
 
+.Notecard {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.displaytext {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  padding-top: 1rem;
+}
 
 
