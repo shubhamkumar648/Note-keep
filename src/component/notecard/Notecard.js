@@ -31,9 +31,12 @@ export const Notecard = ({ noteContent }) => {
       console.log(response.status);
 
       if (response.status === 201) {
+
         notesDispatch({ type: "ARCHIVE_NOTE", payload: noteContent });
+
       }
     } 
+    
     catch (error) {
       console.log(error.response);
     }
@@ -74,9 +77,8 @@ export const Notecard = ({ noteContent }) => {
           <p className="fs-md">{textarea}</p>
 
         </div>
-
-      
-        <section className="cart-footer flex pt-3">
+        
+          <section className="cart-footer flex pt-3">
           <span className="fs-xs font-xl">
             Created At:{" "}
             {`${new Date(CreatedAt).toLocaleDateString()} ${new Date(
@@ -96,9 +98,13 @@ export const Notecard = ({ noteContent }) => {
         {isEdit && <Edit noteContent={noteContent} setisEdit= {setisEdit} />}
           
 
-          <div className="flex tag-container">
-       <div><span className="note-Function">{tags}</span> </div>
-       <div><span className="note-Function">{priority}</span> </div>
+        <div className="flex tag-container">
+       <div>
+       <span className="note-Function">{tags}</span>
+       </div>
+       <div>
+       <span className="note-Function">{priority}</span>
+       </div>
         </div>
 
       </div>

@@ -8,7 +8,7 @@ export const Landingpage = () => {
  
    <div className='landing'>
 
-     <Link to="Login"><button className='btn btn__primary'>Join Now</button></Link>
+     <Link to="/login"><button className='btn btn__primary'>Join Now</button></Link>
 
    </div>
 
