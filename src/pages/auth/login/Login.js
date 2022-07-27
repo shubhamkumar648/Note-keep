@@ -31,7 +31,7 @@ export const Login = () => {
       localStorage.setItem("token", response.data.encodedToken);
 
       setUser(response.data.foundUser);
-      response.status === 200 && navigate("/notes");
+      navigate("/notes");
     } catch (error) {
       console.log(error.response);
     }

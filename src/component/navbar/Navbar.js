@@ -18,7 +18,7 @@ const submitHandler = (e) => {
     <div>
          <header className="ecom_header flex">
         <div className="brand_name">
-          <Link className="link__nostyle fs-xl brand_color" to="/notes">
+          <Link className="link__nostyle fs-xl brand_color" to="/">
             Simple Todo
           </Link>
         </div>
