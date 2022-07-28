@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { FaArchive, FaTrash, FaThumbtack } from "react-icons/fa";
+import { FaArchive } from "react-icons/fa";
 import { useAuth } from "../../contexts/Auth-context";
 import { useNotes } from "../../contexts/Notes-context";
 import "./archived.css";
@@ -38,7 +38,6 @@ export const Archieved = ({ archives }) => {
       >
         <div className="NoteCard_Header flex">
           <p>{title}</p>
-          <FaThumbtack />
         </div>
 
         <p>{textarea}</p>
@@ -57,7 +56,6 @@ export const Archieved = ({ archives }) => {
           </span>
 
           <FaArchive onClick={unArchiveHandler} />
-          <FaTrash />
         </section>
       </div>
     </div>

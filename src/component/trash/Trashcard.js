@@ -18,9 +18,7 @@ export const Trashcard = ({ trash }) => {
       >
         <div className="NoteCard_Header flex">
           <p>{title}</p>
-          <FaThumbtack />
         </div>
-
         <p>{textarea}</p>
         <div>{tags}</div>
         <div>{priority}</div>
@@ -38,8 +36,7 @@ export const Trashcard = ({ trash }) => {
             })}`}
 
           </span>
-
-          <FaTrash  title="Delete trash" onClick={() => notesDispatch({type:"DELETE_FOREVER",payload:_id})}/>
+          <FaTrash  title="Delete trash" onClick={() => notesDispatch({type:"DELETE_FOREVER",payload: _id})}/>
           <MdOutlineRestoreFromTrash  title="Restore trash" onClick={() => notesDispatch({type:"RESTORE_TRASH",payload: trash })}/>
 
 
