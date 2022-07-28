@@ -57,7 +57,6 @@ export const Archieved = ({ archives }) => {
           </span>
 
           <FaArchive onClick={unArchiveHandler} />
-          <FaTrash />
         </section>
       </div>
     </div>

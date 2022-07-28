@@ -1,6 +1,8 @@
 export const NoteReducer = (state, action) => {
 
   console.log(action.type);
+  console.log(action.payload);
+
   switch (action.type) {
 
     case "ADD_NOTE":
@@ -50,7 +52,8 @@ export const NoteReducer = (state, action) => {
        case "DELETE_FOREVER":
         return {
         ...state,
-        trash: state.trash.filter((item) => item._id !== action.payload._id),
+        
+        trash: state.trash.filter((item) => item._id !== action.payload),
           }
  
     default:
