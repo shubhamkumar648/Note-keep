@@ -1,27 +1,23 @@
 import Mockman from "mockman-js";
-import React from 'react'
-import { Routes,Route, Navigate } from 'react-router-dom'
-import { useAuth } from '../contexts/Auth-context'
-import { Archives, Landingpage, Login, Note, Signup, Trash } from '../pages'
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { RequireAuth } from "../component";
+import { Archives, Landingpage, Login, Note, Signup, Trash } from "../pages";
 
 const RoutesPath = () => {
-const {encodedToken} = useAuth()
-    return(
-        <div>
-<Routes>
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/notes" element={<RequireAuth> <Note /> </RequireAuth>}/>
+        <Route path="/archives" element={<RequireAuth> <Archives /></RequireAuth>} />
+        <Route path="/trash" element={ <RequireAuth> <Trash /></RequireAuth>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/mockman" element={<Mockman />} />
+      </Routes>
+    </div>
+  );
+};
 
-<Route path = "/" element = {<Landingpage/>}/>
-<Route path = "/notes" element={encodedToken ? <Note/> : <Navigate to = "/login" replace/>}/>
-<Route path = "/archives" element = {<Archives/>}/>
-<Route path = "/trash"  element = {<Trash/>}/>
-<Route path = "/login"  element = {<Login/>} />
-<Route path ="/signup" element = {<Signup/>} />
-<Route path="/mockman" element ={<Mockman/>} />
-</Routes>
-</div>
-    )
-}
-
-
-export {RoutesPath}
+export { RoutesPath };
