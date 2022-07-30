@@ -37,7 +37,7 @@ export const Notes = ({ editNotes, setisEdit }) => {
     isColorpalletVisible: false,
     tags: editNotes?.tags || "",
     isTagCategoreis: false,
-    priority: editNotes?.priority || "",
+    priority: editNotes?.priority || "high",
   });
 
   const {

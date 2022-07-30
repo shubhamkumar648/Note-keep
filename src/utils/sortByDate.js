@@ -1,13 +1,17 @@
-export const sortByDateFun = (data, filterSortdate) => {
-  switch (filterSortdate) {
+export const sortByDateFun = (data, sortBydate) => {
+
+  console.log(sortBydate);
+  console.log(data,"datewala");
+
+  switch (sortBydate) {
     case "oldest":
       return [...data].sort(
-        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+        (a, b) => new Date(a.CreatedAt) - new Date(b.CreatedAt)
       );
 
     case "latest":
       return [...data].sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        (a, b) => new Date(b.CreatedAt) - new Date(a.CreatedAt)
       );
 
     default:

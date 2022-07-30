@@ -14,11 +14,10 @@ export const Note = () => {
   const { notes } = notesState;
   const { stateFilter } = useFilter();
   const { priority, sortBydate, tags } = stateFilter;
-
   const NotePriorityFilter = priorityFilter(notes, priority);
   const SortByTags = FilterbyTag(NotePriorityFilter, tags);
   const SortByDateFilter = sortByDateFun(SortByTags, sortBydate);
-
+  
   return (
     <div>
       <main className="NoteList_layout flex flex-col">

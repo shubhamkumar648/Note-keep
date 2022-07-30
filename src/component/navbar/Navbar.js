@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { useState } from 'react';
 import { useAuth } from '../../contexts/Auth-context';
 
 
- const Navbar = () => {
-   const {setUser,user} = useAuth()
 
+
+ const Navbar = () => {
+
+   const {setUser,user} = useAuth()
+    
 
 const submitHandler = (e) => {
          e.preventDefault() 
